@@ -17,12 +17,50 @@ QuestionApp = React.createClass({
 				title: '热爱编程是一种怎样的体验？',
 				desc: '别人对玩游戏感兴趣，我对写代码、看技术文章感兴趣；把泡github、stackoverflow、v2ex、reddit、csdn当做是兴趣爱好；遇到重复的工作，总想着能不能通过程序实现自动化；喝酒的时候把写代码当下酒菜，边喝边想边敲；不给工资我也会来加班；做梦都在写代码。',
 				voteCount: 8,
-			},
+			}
 		];
 
 		return {
-			questions: questions
+			questions: questions,
+			formDisplayed: false,
 		};
+	},
+	onToggleForm: function() {
+		this.setState({
+			formDisplayed: !this.state.formDisplayed,
+		});
+	},
+	onNewQuestion: function( newQuestion ) {
+
+		newQuestion.key = this.state.questions.length + 1;
+
+		var newQuestions = this.state.questions.concat(newQuestion);
+
+		newQuestions = this.sortQuestions( newQuestions );
+
+		this.setState({
+			questions: newQuestions
+		});
+	},
+	sortQuestions: function(questions){
+		questions.sort(function(a, b){
+			return b.voteCount - a.voteCount;
+		});
+
+		return questions;
+	},
+	onVote: function(questionKey, newVoteCount){
+		console.log(questionKey + ":" + newVoteCount);
+		
+		var questions = this.state.questions;
+		questions = _.uniq(questions);
+		var index = _.findIndex(questions, {key: questionKey});
+		questions[index].voteCount = newVoteCount;
+		questions = this.sortQuestions(questions);
+
+		this.setState({
+			questions: questions
+		});
 	},
 	render: function() {
 		return (
@@ -30,12 +68,17 @@ QuestionApp = React.createClass({
 			  <div className="jumbotron text-center">
 		          <div className="container">
 		            <h1>React问答</h1>
-		            <ShowAddButton />
+		            <ShowAddButton onToggleForm={this.onToggleForm} />
 		          </div>
 		      </div>
 		      <div className="main container">
-		        <QuestionForm />
-		        <QuestionList questions={this.state.questions} />
+		        <QuestionForm 
+		        	formDisplayed={this.state.formDisplayed} 
+		        	onToggleForm={this.onToggleForm} 
+		        	onNewQuestion={this.onNewQuestion} />
+		        <QuestionList 
+		        	questions={this.state.questions} 
+		        	onVote={this.onVote} />
 		      </div>
 		    </div>
 		);
