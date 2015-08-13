@@ -11,3 +11,4 @@ twbs:bootstrap
 react
 stevezhu:lodash
 react-template-helper
+iron:router
