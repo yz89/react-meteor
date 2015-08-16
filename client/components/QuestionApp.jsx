@@ -1,7 +1,7 @@
-Meteor.startup(function () {
-    // Use Meteor.startup to render the component after the page is ready
-    React.render(<QuestionApp />, document.getElementById("app"));
-});
+// Meteor.startup(function () {
+//     // Use Meteor.startup to render the component after the page is ready
+//     React.render(<QuestionApp />, document.getElementById("app"));
+// });
 
 QuestionApp = React.createClass({
 	getInitialState: function() {

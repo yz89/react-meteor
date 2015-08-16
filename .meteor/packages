@@ -10,3 +10,5 @@ insecure
 twbs:bootstrap
 react
 stevezhu:lodash
+kadira:react-layout
+kadira:flow-router

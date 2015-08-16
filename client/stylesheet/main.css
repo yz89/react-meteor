@@ -3,7 +3,7 @@
 }
 .jumbotron .container{
   position: relative;
-  max-width: 800px;
+  /*max-width: 800px;*/
 }
 #add-question-btn{
   position: absolute;
