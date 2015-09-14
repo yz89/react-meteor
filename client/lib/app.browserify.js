@@ -1,0 +1,9 @@
+// In lib/app.browserify.js
+ProgressLabel = require('react-progress-label');
+LineChart = require("react-chartjs").Line;
+BarChart = require("react-chartjs").Bar;
+RadarChart = require("react-chartjs").Radar;
+PolarAreaChart = require("react-chartjs").PolarArea;
+PieChart = require("react-chartjs").Pie;
+SideNav = require("react-sidenav");
+BurgerMenu = require('react-burger-menu');
