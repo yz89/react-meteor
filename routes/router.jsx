@@ -51,22 +51,12 @@ FlowRouter.route('/app4', {
   },
   action: function(params) {
     ReactLayout.render(MainLayout, {
-      content: <MyBurgerMenu />
+      content: <SliderCom />
     });
   }
 });
 
-FlowRouter.route('/app5', {
 
-  subscriptions: function() {
-
-  },
-  action: function(params) {
-    ReactLayout.render(MainLayout, {
-      content: <Chart />
-    });
-  }
-});
 FlowRouter.notFound = {
     // Subscriptions registered here don't have Fast Render support.
     subscriptions: function() {

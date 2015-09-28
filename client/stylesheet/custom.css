@@ -1,0 +1,24 @@
+.slider-item{
+	width: 800px;
+	height: 600px;
+}
+
+.item-color-red{
+	background-color: red;
+}
+
+.item-color-blue{
+	background-color: blue;
+}
+
+.item-color-green{
+	background-color: green;
+}
+
+.item-color-yellow{
+	background-color: yellow;
+}
+
+.item-color-pink{
+	background-color: pink;
+}

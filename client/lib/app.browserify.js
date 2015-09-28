@@ -6,4 +6,4 @@ RadarChart = require("react-chartjs").Radar;
 PolarAreaChart = require("react-chartjs").PolarArea;
 PieChart = require("react-chartjs").Pie;
 SideNav = require("react-sidenav");
-BurgerMenu = require('react-burger-menu');
+Slider = require('react-slick');
